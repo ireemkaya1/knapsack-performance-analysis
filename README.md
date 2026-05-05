@@ -1,30 +1,32 @@
 # Knapsack (Sırt Çantası Problemi) Performans Analizi
 
-Bu proje, Algoritma Analizi ve Tasarımı dersi kapsamında hazırlanmıştır. Çalışmada **Knapsack (Sırt Çantası Problemi)** için kesin çözüm üreten **Dinamik Programlama (DP)** yöntemi ile yaklaşık/sezgisel çözüm üreten **Greedy**, **Simulated Annealing (SA)** ve **Greedy-SA** yöntemleri karşılaştırılmıştır.
+Bu proje, Algoritma Analizi ve Tasarımı dersi kapsamında hazırlanmıştır. Çalışmada 0/1 Knapsack problemi için kesin çözüm üreten Dinamik Programlama (DP) yöntemi ile yaklaşık/sezgisel çözüm üreten Simulated Annealing (SA), Greedy ve Greedy-SA yöntemleri karşılaştırılmıştır.
 
-Amaç, problem boyutu büyüdükçe kesin çözüm veren DP yönteminin ne zaman pratik olmaktan çıktığını ve sezgisel yöntemlerin ne kadar hızlı çözüm ürettiğini incelemektir.
-
----
+Ayrıca büyük ölçekli veri setinde kesin referans değer elde etmek için Branch and Bound (B&B) yöntemi kullanılmıştır.
 
 ## Kullanılan Algoritmalar
 
 ### 1. Dynamic Programming (DP)
 
-DP yöntemi kesin çözüm üretir. Küçük ve orta ölçekli veri setlerinde optimum sonuç referansı olarak kullanılmıştır. Ancak problem boyutu büyüdükçe zaman ve bellek maliyeti arttığı için büyük veri setlerinde pratik olmaktan çıkmaktadır.
+DP yöntemi küçük ve orta ölçekli veri setlerinde optimum referans çözüm üretmek için kullanılmıştır. Bu çalışmada N=100 ve N=1000 veri setlerinde referans değer DP ile alınmıştır.
 
-### 2. Greedy
+Klasik 2D tablo tabanlı DP yaklaşımının zaman ve bellek maliyeti problem boyutu ve kapasite değeriyle birlikte artar. Bu nedenle büyük ölçekli veri setinde DP ayrıca ölçeklenebilirlik açısından incelenmiştir.
 
-Greedy yöntemi nesneleri değer/ağırlık oranına göre sıralar ve çanta kapasitesi dolana kadar seçim yapar. Çok hızlıdır fakat her zaman optimum sonucu garanti etmez.
+### 2. Simulated Annealing (SA)
 
-### 3. Simulated Annealing (SA)
+SA, yaklaşık çözüm üreten meta-sezgisel bir yöntemdir. Komşu çözümler üzerinden arama yaparak kabul olasılığı ve sıcaklık parametresi yardımıyla daha iyi çözümlere ulaşmaya çalışır.
 
-SA, yaklaşık çözüm arayan meta-sezgisel bir yöntemdir. Rastgele komşu çözümler üzerinden arama yaparak daha iyi çözüme ulaşmaya çalışır. Büyük veri setlerinde DP’ye göre çok daha kısa sürede sonuç verir.
+### 3. Greedy
+
+Greedy yöntemi, nesneleri değer/ağırlık oranına göre sıralayarak hızlı bir başlangıç çözümü üretir. Çok hızlıdır fakat her zaman optimum sonucu garanti etmez.
 
 ### 4. Greedy-SA
 
-Greedy-SA yöntemi, Simulated Annealing algoritmasını greedy çözümden başlatır. Böylece başlangıç çözümü daha güçlü olur ve çözüm kalitesi genellikle Greedy yönteminden kötüye gitmez.
+Greedy-SA yöntemi, Greedy ile bulunan başlangıç çözümünü SA ile iyileştirmeyi amaçlar. Böylece hızlı başlangıç çözümü ile meta-sezgisel arama birlikte kullanılmış olur.
 
----
+### 5. Branch and Bound (B&B)
+
+Branch and Bound yöntemi, özellikle büyük veri setinde kesin referans değer elde etmek için kullanılmıştır. Bu projede N=10000 veri seti için referans değer B&B ile alınmıştır.
 
 ## Veri Setleri
 
@@ -36,46 +38,16 @@ Deneylerde üç farklı problem boyutu kullanılmıştır:
 | Orta | N = 1000 |
 | Büyük | N = 10000 |
 
-Aynı veri setleri üzerinde DP, Greedy, SA ve Greedy-SA algoritmaları çalıştırılmıştır.
+## Deneysel Değerlendirme
 
----
+Algoritmalar aynı veri setleri üzerinde çalıştırılmış ve şu ölçütlerle karşılaştırılmıştır:
 
-## Deneysel Bulgular
+- Bulunan toplam değer
+- Toplam ağırlık
+- Çalışma süresi
+- Referans değere göre doğruluk açığı
 
-- **N = 100** için DP başarıyla çalışmış ve optimum çözüm üretmiştir.
-- **N = 1000** için DP yine çalışmış ve optimum referans değer elde edilmiştir.
-- **N = 10000** için DP 1800 saniyelik zaman sınırı içinde tamamlanamamış ve timeout durumuna düşmüştür.
-- Greedy, SA ve Greedy-SA yöntemleri büyük veri setinde de kısa sürede sonuç üretmiştir.
-- Doğruluk açığı (accuracy gap), DP’nin başarıyla çalıştığı veri setlerinde DP sonucu referans alınarak hesaplanmıştır.
-- N = 10000 için DP optimum değeri bulunamadığından doğruluk açığı N/A olarak değerlendirilmiştir.
-
-Bu sonuçlar, veri boyutu büyüdükçe kesin çözüm veren DP yönteminin pratik maliyetinin arttığını; sezgisel yöntemlerin ise optimum garantisi vermeden daha hızlı ve uygulanabilir çözümler ürettiğini göstermektedir.
-
----
-
-## Proje Yapısı
+Doğruluk açığı şu formülle hesaplanmıştır:
 
 ```text
-knapsack-performance-analysis/
-│
-├── code/
-│   ├── algorithms.py
-│   ├── config.py
-│   ├── experiment.py
-│   ├── main.py
-│   ├── plot.py
-│   └── validate_outputs.py
-│
-├── results/
-│   ├── experiment_results.csv
-│   ├── validation_report.txt
-│   ├── plots/
-│   └── solutions/
-│
-├── paper/
-│   ├── main.tex
-│   ├── references.bib
-│   └── figures/
-│
-├── requirements.txt
-└── README.md
+Gap (%) = ((Referans Değer - Algoritma Değeri) / Referans Değer) × 100
