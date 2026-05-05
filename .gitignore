@@ -1,0 +1,11 @@
+.venv/
+__pycache__/
+*.pyc
+.DS_Store
+overleaf_upload/
+*.zip
+*.aux
+*.log
+*.out
+*.toc
+*.synctex.gz

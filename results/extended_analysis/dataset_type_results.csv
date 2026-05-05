@@ -1,0 +1,37 @@
+dataset_type,n,algorithm,status,total_value,capacity,runtime_seconds,accuracy_gap_percent
+uncorrelated_random,100,Greedy,success,16704.000000,1803,0.000024,0.000000
+uncorrelated_random,100,Dynamic Programming,success,16704.000000,1803,0.000976,0.000000
+uncorrelated_random,100,Simulated Annealing,success,16652.000000,1803,0.172439,0.311303
+uncorrelated_random,100,Greedy-SA,success,16704.000000,1803,0.193982,0.000000
+uncorrelated_random,500,Greedy,success,87055.000000,8727,0.000086,0.004595
+uncorrelated_random,500,Dynamic Programming,success,87059.000000,8727,0.019853,0.000000
+uncorrelated_random,500,Simulated Annealing,success,85742.000000,8727,0.192770,1.512767
+uncorrelated_random,500,Greedy-SA,success,87055.000000,8727,0.195523,0.004595
+uncorrelated_random,1000,Greedy,success,173958.000000,17544,0.000175,0.006323
+uncorrelated_random,1000,Dynamic Programming,success,173969.000000,17544,0.071641,0.000000
+uncorrelated_random,1000,Simulated Annealing,success,171925.000000,17544,0.321124,1.174922
+uncorrelated_random,1000,Greedy-SA,success,173958.000000,17544,0.317374,0.006323
+weakly_correlated,100,Greedy,success,7097.000000,1803,0.000016,0.337031
+weakly_correlated,100,Dynamic Programming,success,7121.000000,1803,0.001063,0.000000
+weakly_correlated,100,Simulated Annealing,success,6712.000000,1803,0.184013,5.743575
+weakly_correlated,100,Greedy-SA,success,7097.000000,1803,0.193326,0.337031
+weakly_correlated,500,Greedy,success,34476.000000,8727,0.000083,0.023199
+weakly_correlated,500,Dynamic Programming,success,34484.000000,8727,0.019261,0.000000
+weakly_correlated,500,Simulated Annealing,success,32357.000000,8727,0.197498,6.168078
+weakly_correlated,500,Greedy-SA,success,34476.000000,8727,0.196157,0.023199
+weakly_correlated,1000,Greedy,success,69570.000000,17544,0.000166,0.004312
+weakly_correlated,1000,Dynamic Programming,success,69573.000000,17544,0.073238,0.000000
+weakly_correlated,1000,Simulated Annealing,success,64986.000000,17544,0.325211,6.593075
+weakly_correlated,1000,Greedy-SA,success,69570.000000,17544,0.324205,0.004312
+greedy_trap,100,Greedy,success,16332.000000,1074,0.000019,1.673691
+greedy_trap,100,Dynamic Programming,success,16610.000000,1074,0.000719,0.000000
+greedy_trap,100,Simulated Annealing,success,16590.000000,1074,0.196698,0.120409
+greedy_trap,100,Greedy-SA,success,16590.000000,1074,0.174943,0.120409
+greedy_trap,500,Greedy,success,77693.000000,5206,0.000087,0.066885
+greedy_trap,500,Dynamic Programming,success,77745.000000,5206,0.013106,0.000000
+greedy_trap,500,Simulated Annealing,success,77166.000000,5206,0.198496,0.744742
+greedy_trap,500,Greedy-SA,success,77693.000000,5206,0.196867,0.066885
+greedy_trap,1000,Greedy,success,154887.000000,10521,0.000180,0.205533
+greedy_trap,1000,Dynamic Programming,success,155206.000000,10521,0.047834,0.000000
+greedy_trap,1000,Simulated Annealing,success,154445.000000,10521,0.326665,0.490316
+greedy_trap,1000,Greedy-SA,success,154887.000000,10521,0.333467,0.205533

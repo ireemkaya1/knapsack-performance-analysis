@@ -1,0 +1,4 @@
+N,capacity,DP_status,DP_value,DP_time,Greedy_value,Greedy_time,Greedy_gap,Greedy_speedup,SA_value,SA_time,SA_gap,SA_speedup,GreedySA_value,GreedySA_time,GreedySA_gap,GreedySA_speedup,comment
+100,1803,success,16704,0.001122,16704,0.000024,0.000000,46.750000,16652,0.189769,0.311303,0.005912,16704,0.214375,0.000000,0.005234,DP optimum referans ile gap ve speedup tam.
+1000,17544,success,173969,0.070350,173958,0.000185,0.006323,380.270270,171925,0.344739,1.174922,0.204067,173958,0.342398,0.006323,0.205463,DP optimum referans ile gap ve speedup tam.
+10000,1491343,timeout,-,1800.000000,8504262,0.002012,N/A,894632.206759,8478156,0.802199,N/A,2243.832266,8504262,0.698894,N/A,2575.497858,DP zaman aşımı (1800s); gap ve optimum bilinmiyor; hız oranları alt sınır (≥ timeout / sezgisel süre).

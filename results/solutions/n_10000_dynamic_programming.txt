@@ -1,0 +1,4 @@
+algorithm: Dynamic Programming
+n: 10000
+capacity: 1491343
+status: timeout
